@@ -5,6 +5,8 @@ export(float, 0.1, 1) var mouse_sensitivity : float = 0.2
 export(float, -90, 0) var min_pitch : float = -70
 export(float, 0, 90) var max_pitch : float = 50
 
+onready var parent = get_parent()
+
 func _ready() -> void:
 	set_as_toplevel(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,7 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
-	global_transform.origin=get_parent().global_transform.origin
+	global_transform.origin=parent.global_transform.origin
 
 
 
